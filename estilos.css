@@ -1,0 +1,460 @@
+/*--Definimos la raiz de nuestros estilos--*/
+:root{
+    scroll-behavior: smooth;
+    transition: scroll-behavior .1s;
+    --blue: #0d6efd;
+    --primary: #0a58ca;
+    --white: #f8f9fa;
+    --light: #f8f9fa;
+    --black: #000;
+    --dark: #212529;
+    --font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+    color: var(--black);
+}
+/*--------------------------------------------------*/
+/*--- Definimos los estilos para ciertos bloques ---*/
+/*--------------------------------------------------*/
+.clean{
+    text-decoration: none;
+}
+.container{
+    width: 80%;
+    max-width: 70em;
+    margin: 0 auto;
+    height: 100%;
+}
+.button{
+    background-color: var(--primary);
+    width: max-content;
+    color: var(--light);
+    border: 1px solid transparent;
+    padding: .625em 1.25em;
+    border-radius: .625em;
+    font-size: 1.1em;
+}
+/*--------------------------------------------------------*/
+/*--- Definimos los estilos para el menú de Navegación ---*/
+/*--------------------------------------------------------*/
+.nav{
+    z-index: 10;
+    height: 3.75em;
+    background-color: var(--light);
+    position: fixed;
+    right: 0;
+    left: 0;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, .3)
+}
+.nav__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav__tittle{
+    text-decoration: none;
+    letter-spacing: .3125rem;
+}
+.nav__icon{
+    font-size: 1.5em;
+    display: none;
+}
+.nav__menu{
+    letter-spacing: 0.125rem;
+    display: flex;
+    flex-direction: row;
+    align-items: inherit;
+    gap: 3.75em;
+}
+.nav__item{
+    list-style: none;
+    text-decoration: none;
+    transition: 1s;
+}
+/*---------------------------------------*/
+/*--- Animacion para el boton de Blog ---*/
+/*---------------------------------------*/
+.animation::after{
+    content: "";
+    display: block;
+    margin-top: 2px;
+    width: 0%;
+    height: 3px;
+    background-color: #000;
+    opacity: 1;
+    transition: .5s ease-in-out all;
+}
+.animation:hover::after{
+    opacity: 1;
+    animation: animation-button 2s;
+    width: 70%;
+}
+@keyframes animation-button{
+    0%{
+        width: 0%;
+    }
+    75%{
+        width: 110%;
+    }
+    100%{
+        width: 70%;
+    }
+}
+.animation--blog:hover{
+    transform: scale(1.1,1.1);
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.5);
+}
+/*---------------------------------------*/
+/*---------------------------------------*/
+
+/*------------------------------------------------------*/
+/*--- Definimos los estilos para la sección del Hero ---*/
+/*------------------------------------------------------*/
+.hero{
+    background: url('img/code-3.jpg') center center/ cover no-repeat;
+    overflow: hidden;
+    height: calc(100vh);
+    width: 100%;
+}
+.hero__container{
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%;
+}
+.hero__container-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+.hero__text{
+    color: var(--light);
+    font-family: var(--font-family);
+    letter-spacing: 5px;
+}
+.hero__text-slogan{
+    font-size: 3em;
+}
+.text-ref{
+    font-family: var(--font-family);
+    letter-spacing: 5px;
+    color: var(--light);
+    font-size: .5em;
+    font-weight: 600;
+}
+.button__animation{
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--blue);
+    transition: .3s ease all;
+    overflow: hidden;
+    position: relative;
+}
+.button__slider{
+    font-family: var(--font-family);
+    font-size: 1.5em;
+    width: 100%;
+    height: 100%;
+    letter-spacing: 2px;
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+.button__slider::after{
+    content: "";
+    height: inherit;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .1);
+    position: absolute;
+    z-index: -1;
+    left: -100%;
+    transition: .5s ease-in-out all;
+}
+.button__slider:hover::after{
+    left: 0;
+}
+.button--border{
+    border-radius: 30px;
+}
+.button--hero{
+    background-color: var(--light);
+    color: #000;
+    font-weight: 600;
+}
+/*------------------------------------------------------------*/
+/*--- Definimos los estilos para la sección de Habilidades ---*/
+/*------------------------------------------------------------*/
+.skill{
+    margin: 6.25em 0;
+}
+.skill__container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+.skill__card{
+    overflow: hidden;
+    width: 300px;
+    border-radius: 20px 20px;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
+    transition: .5s;
+}
+/*----------------------------------------------*/
+/*--- Animación de la tarjeta de habilidades ---*/
+/*----------------------------------------------*/
+.skill__card:hover{
+    transform: scale(1.1,1.1);
+}
+/*----------------------------------------------*/
+/*----------------------------------------------*/
+.fondo--html{
+    background-color: rgb(255, 87, 34);
+}
+.fondo--css{
+    background-color: rgb(33, 153, 243);
+}
+.skill__card-img{
+    width: 100%;
+    height: 300px;
+    
+}
+.skill__card-section{
+    margin: 1em 1em;
+}
+.skill__card-tittle{
+    margin-bottom: 10px;
+}
+/*----------------------------------------------------------*/
+/*--- Definimos los estilos para la sección de Proyectos ---*/
+/*----------------------------------------------------------*/
+.line{
+    width: 100%;
+}
+.project{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.project__container{
+    overflow: hidden;
+}
+.project__element{
+    margin: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5em;
+
+}
+.project__element--reverse{
+    flex-direction: row-reverse;
+}
+.project__element-paragraph{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.project__element-tittle{
+    font-size: 4em;
+    font-family: var(--font-family);
+    letter-spacing: 2px;
+}
+.project__element-text{
+    font-family: var(--font-family);
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    font-weight: 20px;
+}
+/*--------------------------------------------------------*/
+/*--- Estilos para el boton de la seccion de proyectos ---*/
+/*--------------------------------------------------------*/
+
+.project__button{
+    width: 250px;
+    height: 50px;
+    background-color: var(--blue);
+}
+.button--project{
+    font-family: var(--font-family);
+    font-size: 1.5em;
+    width: 100%;
+    height: 100%;
+    letter-spacing: 2px;
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+/*--- Animacion para el boton del proyecto ---*/
+.button--project::after{
+    content: "";
+    height: inherit;
+    width: 100%;
+    background-color: var(--primary);
+    position: absolute;
+    z-index: -1;
+    left: -100%;
+    transition: .5s ease-in-out all;
+}
+.button--project:hover::after{
+    left: 0;
+}
+/*---------------------------------------------*/
+/*---------------------------------------------*/
+.button--cta{
+    display: none;
+}
+.project__img{
+    min-width: 400px;
+    height: 400px;
+    background: var(--i);
+    background-size: cover;
+}
+.project__img-content{
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    opacity: 0;
+    transition: 2s;
+}
+.project__img-text{
+    width: max-content;
+    height: fit-content;
+    margin: 0 auto;
+    color: var(--light);
+    font-family: var(--font-family);
+    letter-spacing: 2px;
+}
+/*-------------------------------------------*/
+/*--- Animacion de la imagen del proyecto ---*/
+/*-------------------------------------------*/
+.project__img-content:hover{
+    opacity: 1;
+    padding-top: 170px;
+    background-color: rgba(0, 0, 0, .5);
+    
+}
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+
+/*--------------------------------------------------------*/
+/*--- Definimos los estilos para la sección del Footer ---*/
+/*--------------------------------------------------------*/
+.footer{
+    padding: 50px 0;
+}
+.footer__container{
+    display: flex;
+    justify-content: space-between;
+}
+.footer__container-text, .footer__container-text span{
+    font-family: var(--font-family);
+    letter-spacing: 3px;
+}
+.text__blue{
+    color: var(--primary);
+}
+@media(max-width: 1050px){
+    /*------------------------------------------------------------*/
+    /*--- Ajustamos el tamaño de fuente de la seccion del menu ---*/
+    /*------------------------------------------------------------*/
+    .nav__tittle, .nav__item{
+        font-size: .8em;
+    }
+    .nav__menu{
+        gap: 1em;
+    }
+    .footer__container{
+        flex-direction: column;
+        gap: 1em;
+        text-align: center;
+    }
+}
+@media(max-width: 900px){
+    /*----------------------------------------------------------*/
+    /*--- Ajustamos los elementos de la seccion de proyectos ---*/
+    /*----------------------------------------------------------*/
+    .project__element{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .project__element-tittle, .project__element-text{
+        text-align: center;
+    }
+    .project__button{
+        margin: 0 auto;
+    }
+}
+@media(max-width: 750px){
+    /*------------------------------------------------------------*/
+    /*--- Ajustamos el tamaño de fuente de la seccion del menu ---*/
+    /*------------------------------------------------------------*/
+    .nav__tittle{
+        font-size: 1em;
+    }
+    .nav__item{
+        color: aliceblue;
+        font-size: 1.2em;
+    }
+    /*-----------------------------------------*/
+    /*--- Animacion responsive para el menu ---*/
+    /*-----------------------------------------*/
+    .nav__icon{
+        display: block;
+    }
+    .nav__menu{
+        position: fixed;
+        background-color: #000;
+        top: 60px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6em;
+
+        clip-path: circle(0% at center);
+        transition: clip-path 1s;
+    }
+    .spred{
+        clip-path: circle(100% at center);
+    }
+    /*------------------------------------------------------------*/
+    /*--- Ajustamos el tamaño de fuente de la seccion del hero ---*/
+    /*------------------------------------------------------------*/
+    .hero__text-slogan{
+        font-size: 3em;
+    }
+    .button--border{
+        font-size: 1em;
+    }
+    .button--hero{
+        font-size: 1.2em;
+    }
+    /*----------------------------------------------------------------*/
+    /*--- Ajustamos el tamaño de fuente de la seccion de proyectos ---*/
+    /*----------------------------------------------------------------*/
+    .project__button{
+        display: none;
+    }
+    .button--cta{
+        display: block;
+        margin: 0 auto;
+    }
+}
